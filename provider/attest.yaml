@@ -1,0 +1,60 @@
+identity:
+  author: mrpkk
+  name: attest
+  label:
+    en_US: attest
+    zh_Hans: attest
+    ja_JP: attest
+    pt_BR: attest
+  description:
+    en_US: Verification for AI agent artifacts. Four independent checks and an Ed25519-signed verdict you can verify without us.
+    zh_Hans: AI 智能体产物的验证。四项独立检查与可离线验证的 Ed25519 签名结论。
+    ja_JP: AI エージェント成果物の検証。4 つの独立したチェックと、当方なしで検証できる Ed25519 署名付き判定。
+    pt_BR: Verificação de artefatos de agentes de IA. Quatro checagens independentes e um veredito assinado com Ed25519, verificável sem nós.
+  icon: icon.svg
+  tags:
+    - utilities
+credentials_for_provider:
+  api_base:
+    type: text-input
+    required: false
+    default: https://attest.rta.lat
+    label:
+      en_US: API base URL
+      zh_Hans: API 基础地址
+      ja_JP: API ベース URL
+      pt_BR: URL base da API
+    placeholder:
+      en_US: https://attest.rta.lat
+      zh_Hans: https://attest.rta.lat
+      ja_JP: https://attest.rta.lat
+      pt_BR: https://attest.rta.lat
+    help:
+      en_US: Defaults to the hosted service (20 free checks per day).
+      zh_Hans: 默认为托管服务（每天 20 次免费检查）。
+      ja_JP: 既定はホスト版（1 日 20 回まで無料）。
+      pt_BR: O padrão é o serviço hospedado (20 verificações grátis por dia).
+  entitlement:
+    type: secret-input
+    required: false
+    label:
+      en_US: Entitlement token (optional)
+      zh_Hans: 订阅令牌（可选）
+      ja_JP: エンタイトルメントトークン（任意）
+      pt_BR: Token de direito (opcional)
+    placeholder:
+      en_US: X-ATTEST-ENTITLEMENT token for 30-day unlimited access
+      zh_Hans: 30 天无限访问的 X-ATTEST-ENTITLEMENT 令牌
+      ja_JP: 30 日間無制限アクセスの X-ATTEST-ENTITLEMENT トークン
+      pt_BR: Token X-ATTEST-ENTITLEMENT para 30 dias ilimitados
+    help:
+      en_US: Buy a 30-day token at https://attest.rta.lat/pricing
+      zh_Hans: 在 https://attest.rta.lat/pricing 购买 30 天令牌
+      ja_JP: https://attest.rta.lat/pricing で 30 日トークンを購入
+      pt_BR: Compre um token de 30 dias em https://attest.rta.lat/pricing
+    url: https://attest.rta.lat/pricing
+tools:
+  - tools/verify_artifact.yaml
+extra:
+  python:
+    source: provider/attest.py

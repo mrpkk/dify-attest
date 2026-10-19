@@ -1,0 +1,60 @@
+identity:
+  name: verify_artifact
+  author: mrpkk
+  label:
+    en_US: Verify artifact
+    zh_Hans: 验证产物
+    ja_JP: 成果物を検証
+    pt_BR: Verificar artefato
+description:
+  human:
+    en_US: Verify an artifact produced by an AI agent before you trust it or pay for it. Returns accept / review / reject with a signed attestation.
+    zh_Hans: 在信任或支付之前验证 AI 智能体产物，返回 accept / review / reject 与签名凭证。
+    ja_JP: 信頼・支払いの前に AI エージェントの成果物を検証します。accept / review / reject と署名付き証明を返します。
+    pt_BR: Verifique um artefato produzido por um agente de IA antes de confiar ou pagar. Retorna accept / review / reject com atestação assinada.
+  llm: >-
+    Verify an artifact produced by an AI agent before acting on it: checks schema conformance,
+    empty or placeholder content, prompt-injection text (positional, not just phrasal), and
+    provenance/authority. Returns a verdict (accept / review / reject), a trust score, the list
+    of violations and signals, and an Ed25519-signed attestation that can be verified without
+    the service. Pass the artifact as a JSON string (object or array). Optionally pass a JSON
+    Schema to check conformance. Use before spending money on an unverified third-party result
+    or before inserting foreign output into an agent context.
+parameters:
+  - name: artifact
+    type: string
+    required: true
+    label:
+      en_US: Artifact (JSON)
+      zh_Hans: 产物（JSON）
+      ja_JP: 成果物（JSON）
+      pt_BR: Artefato (JSON)
+    human_description:
+      en_US: The artifact to verify, JSON-encoded. Objects, arrays and plain strings are accepted.
+      zh_Hans: 要验证的产物，JSON 编码。支持对象、数组和纯字符串。
+      ja_JP: 検証する成果物（JSON）。オブジェクト、配列、文字列を受け付けます。
+      pt_BR: O artefato a verificar, em JSON. Aceita objetos, arrays e strings.
+    llm_description: >-
+      The artifact exactly as received from the external tool, MCP server or agent,
+      JSON-encoded. Do not edit or summarise it: the point is to check what actually arrived.
+    form: llm
+  - name: schema
+    type: string
+    required: false
+    label:
+      en_US: Expected schema (JSON Schema, optional)
+      zh_Hans: 期望的模式（JSON Schema，可选）
+      ja_JP: 期待するスキーマ（JSON Schema、任意）
+      pt_BR: Esquema esperado (JSON Schema, opcional)
+    human_description:
+      en_US: Optional JSON Schema the artifact must conform to.
+      zh_Hans: 可选的 JSON Schema，产物必须符合它。
+      ja_JP: 成果物が従うべき JSON Schema（任意）。
+      pt_BR: JSON Schema opcional que o artefato deve cumprir.
+    llm_description: >-
+      Optional JSON Schema (JSON-encoded) that the artifact must conform to. Include it when the
+      tool declares its output format; omit it when there is no contract to check against.
+    form: llm
+extra:
+  python:
+    source: tools/verify_artifact.py

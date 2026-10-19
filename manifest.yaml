@@ -1,0 +1,36 @@
+version: 0.0.1
+type: plugin
+author: mrpkk
+name: attest
+label:
+  en_US: attest
+  zh_Hans: attest
+  ja_JP: attest
+  pt_BR: attest
+description:
+  en_US: Verify an AI agent artifact (schema, prompt injection, provenance, authority) before you trust it or pay for it.
+  zh_Hans: 在信任或支付之前验证 AI 智能体产物（模式、提示注入、来源、权限）。
+  ja_JP: AI エージェントの成果物（スキーマ、プロンプトインジェクション、来歴、権限）を信頼・支払い前に検証します。
+  pt_BR: Verifique um artefato de agente de IA (esquema, injeção de prompt, proveniência, autoridade) antes de confiar ou pagar por ele.
+icon: icon.svg
+resource:
+  memory: 268435456
+  permission:
+    tool:
+      enabled: true
+plugins:
+  tools:
+    - provider/attest.yaml
+meta:
+  version: 0.0.1
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+created_at: 2026-10-20T00:00:00Z
+privacy: PRIVACY.md
+tags:
+  - utilities

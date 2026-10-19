@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="96" fill="#0E1116"/>
+  <rect x="64" y="96" width="384" height="10" rx="5" fill="#4EA48C"/>
+  <text x="256" y="290" font-family="DejaVu Sans, Arial, sans-serif" font-size="112" font-weight="700"
+        fill="#F2F5F4" text-anchor="middle">attest</text>
+  <text x="256" y="356" font-family="DejaVu Sans, Arial, sans-serif" font-size="30"
+        letter-spacing="6" fill="#8B9598" text-anchor="middle">VERIFY FIRST</text>
+  <rect x="216" y="392" width="80" height="4" rx="2" fill="#4EA48C"/>
+</svg>
